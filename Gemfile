@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
@@ -52,3 +52,17 @@ gem "figaro"
 gem 'omniauth'
 
 gem 'omniauth-facebook'
+
+gem "simple_calendar", "~> 2.0"
+
+gem 'fog'
+
+gem "mini_magick"
+
+gem 'bootstrap-datepicker-rails'
+
+gem 'momentjs-rails'
+
+gem 'bootstrap-daterangepicker-rails'
+
+gem 'kaminari'

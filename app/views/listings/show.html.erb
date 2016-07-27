@@ -1,0 +1,35 @@
+<h1 class='t'>Listings#show</h1>
+<p>Find me in app/views/listings/show.html.erb</p>
+
+
+
+<%=link_to "All Listings", listings_path%><br>
+
+<%@listing.tags.each do |t|%>
+<%=link_to "#{t.tag}", tag_path(t.id)%>
+<%end%>
+
+<%= link_to "Delete", @listing, method: :delete%>
+
+<%= image_tag (@listing.avatars[0].large.url) if @listing.avatars != [] %>
+
+<%= image_tag (@listing.avatars[1].large.url) if @listing.avatars != [] %>
+
+<%= image_tag (@listing.avatars[2].large.url) if @listing.avatars != [] %>
+
+<h2>Book Now!</h2> 
+
+<h3>Current Reservations:</h3>
+<br>
+<%@reservations.each do |r|%>
+<%= r.start_date %>-<%=r.end_date%> BY <%=User.find(r.user_id).email%><br>
+<%end%>
+<br>
+<%= content_tag :div, nil, id: "available_dates", data: {dates: @listing.available_dates} %>
+
+<%= form_for @reservation do |f| %> 
+<%= f.text_field :start_date, :data =>{ :provide =>"datepicker"}%>
+<%= f.text_field :end_date, :data =>{ :provide =>"datepicker"}%>
+<%= f.hidden_field :listing_id, value: @listing.id%>
+<%= f.submit "Book"%>
+<%end%>

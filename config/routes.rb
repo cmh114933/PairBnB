@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  resources :tags, only: [:create, :index, :new, :destroy, :show]
+  resources :listings
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
@@ -12,9 +15,19 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
 
+
+  post '/users/:id' => 'users#update', as: 'user_update'
+
    get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
+   post "/fetch_tags" => 'listings#from_category', as: 'fetch_tags'
+
+   post "/like_results" => 'listings#like_results', as: 'like_results'
+  get "/users/:id/edit_user" => 'users#edit_profile', as: 'edit_user'
+
     resources :users, only: [:show, :edit, :update, :destroy] 
+    resources :reservations, only: [:create]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

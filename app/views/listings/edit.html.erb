@@ -1,0 +1,13 @@
+<h1>Listings#edit</h1>
+<p>Find me in app/views/listings/edit.html.erb</p>
+
+  <%= form_for @listing, :html => {:multipart => true} do |f| %>
+  	<%= f.text_field :locations ,:value => 'location' %>
+  	<%= f.number_field :prices %>
+   	<%=  f.fields_for :available_dates do |form|%>
+	  	<%= form.text_field :start_date, :data =>{ :provide =>"datepicker"}%>
+	  	<%= form.text_field :end_date, :data =>{ :provide =>"datepicker"}%>
+  	<%end%>
+  	<%= render partial: '/listings/form', object: f%>
+  	<%= f.submit "Update" %>
+  	<%end%>

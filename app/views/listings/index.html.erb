@@ -1,0 +1,22 @@
+<h1>Listings#index</h1>
+<p>Find me in app/views/listings/index.html.erb</p>
+
+<%= form_for @tag do |t| %>
+<%= t.text_field :tag ,:value => 'filter' %>
+<%end%>
+<h2>Tag selection</h2>
+<%Tag.all.each do |t|%>
+<%="#{t.tag}, "%>
+<%end%>
+<br>
+<br>
+<div id = "advance"> Advance Search</div>
+<div id = "search" style = "display:none">
+	<%= form_for @search do |l| %> 
+		<%= l.check_box("locations")%><br>
+		<!-- checkbox to determine field to check for like -->
+		<%= l.text_field :locations, :value => "locations"%> 
+		<%end%>
+</div>
+
+<div id=list><%= render 'listing_list' %></div>
