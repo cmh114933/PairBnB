@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%= javascript_include_tag 'application' %>
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
   <%= csrf_meta_tag %>
+
+
 </head>
 <body>
   <div id="header">
@@ -21,5 +24,9 @@
   </div>
 
   <%= yield %>
+   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
+
+
+

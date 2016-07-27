@@ -1,0 +1,6 @@
+<%= form_for @user, :html => {:mutipart => true} do |u|%>
+	<%= u.file_field :avatars, multiple: true %>
+  	<%= u.submit "Update" %>
+  	<%end%>
+
+  	<%= image_tag (@user.avatars[0].large.url) if @user.avatars != [] %>

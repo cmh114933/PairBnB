@@ -1,0 +1,8 @@
+<%@listing.each do |listing|%>
+<%=link_to "#{listing.locations}",listing_path(listing.id) %>  <%=listing.prices%>  
+<%listing.tags.each do |tag|%>
+<%=link_to "#{tag.tag}", tag_path(tag.id)%> 
+<%end%>
+ <%= link_to 'edit listings',edit_listing_path(listing.id)%><br>
+<%end%>
+

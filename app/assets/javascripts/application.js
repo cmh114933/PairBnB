@@ -14,3 +14,44 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+//= require bootstrap-datepicker
+
+//= require moment
+//= require daterangepicker
+
+$(document).ready(function(){
+	var availableDates = $('#available_dates').data('dates');
+    // debugger
+    var function_d = {
+            format:  'dd/mm/yyyy',
+            beforeShowDay: function(date){
+                console.log('cheking date')
+                // debugger
+                dmy = date.getFullYear() + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2);
+                if($.inArray(dmy,availableDates) != -1){
+                    console.log('enabled')
+                    return {
+                        enabled : true
+                    }
+                }else{
+                    console.log('disabled')
+                    return {
+                        enabled : false
+                    }
+                }
+            }
+        }
+
+
+    	$('#reservation_start_date').datepicker(function_d);
+        $('#reservation_end_date').datepicker(function_d);
+
+
+	$('#listing_available_dates_start_date,#listing_available_dates_end_date').datepicker({
+        format:  'dd/mm/yyyy',
+     });
+
+})
+

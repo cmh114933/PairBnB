@@ -1,0 +1,19 @@
+
+
+<%= link_to 'new listing', new_listing_path%>
+<%= link_to 'all listings',listings_path%>
+
+
+<% if signed_in? %>
+	<%= link_to 'edit profile',edit_user_path(current_user.id)%>
+	<h1>Reservations</h1>
+	<%Reservation.where(user_id:current_user.id).each do |r|%>
+	<%= Listing.find(r.listing_id).locations%>  <%= r.start_date%>   <%= r.end_date%> <br>
+	<%end%>
+<%end%>
+<br>
+<h1>Listings</h1>
+<%@listings.each do |x|%>
+	<%=x.locations%><br>
+<%end%>
+<%= paginate @listings %>

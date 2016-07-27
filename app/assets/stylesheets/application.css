@@ -12,4 +12,12 @@
  *
  *= require_tree .
  *= require_self
+
+ *= require bootstrap-datepicker
+
+ *= require daterangepicker-bs3
  */
+
+ .disabled {
+ 	background-color: gray;
+ }

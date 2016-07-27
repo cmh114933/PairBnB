@@ -1,0 +1,17 @@
+<h1>Listings#new</h1>
+
+
+  <%= form_for @listing do |f| %>
+  	<%= f.text_field :locations ,:value => 'location' %>
+  	<%= f.number_field :prices %>
+  	<%=  f.fields_for @tags do |form|%>
+	  	<%= form.text_field :tag, :value => 'tag,tag,tag'%>
+  	<%end%>
+   	<%=  f.fields_for :available_dates do |form|%>
+	  	<%= form.text_field :start_date, :data =>{ :provide =>"datepicker"}%>
+	  	<%= form.text_field :end_date, :data =>{ :provide =>"datepicker"}%>
+  	<%end%>
+
+  	<%= f.submit "Create" %>
+  	<%end%>
+

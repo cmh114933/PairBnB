@@ -1,0 +1,10 @@
+<h1>Tags#show</h1>
+<p>Find me in app/views/tags/show.html.erb</p>
+
+<%=link_to "All Tags", tags_path%><br>
+
+<%@list.each do |l|%>
+
+<%=link_to "#{l.locations}",listing_path(l.id)%><br>
+
+<%end%>
