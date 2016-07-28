@@ -22,6 +22,11 @@
 //= require daterangepicker
 
 $(document).ready(function(){
+
+    $('#listing_available_dates_start_date,#listing_available_dates_end_date').datepicker({
+        format:  'dd/mm/yyyy',
+     });
+
 	var availableDates = $('#available_dates').data('dates');
     // debugger
     var function_d = {
@@ -47,11 +52,6 @@ $(document).ready(function(){
 
     	$('#reservation_start_date').datepicker(function_d);
         $('#reservation_end_date').datepicker(function_d);
-
-
-	$('#listing_available_dates_start_date,#listing_available_dates_end_date').datepicker({
-        format:  'dd/mm/yyyy',
-     });
 
 })
 

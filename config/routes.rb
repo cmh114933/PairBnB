@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   get "/users/:id/edit_user" => 'users#edit_profile', as: 'edit_user'
 
     resources :users, only: [:show, :edit, :update, :destroy] 
-    resources :reservations, only: [:create]
+    resources :reservations, only: [:create,:show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
