@@ -22,7 +22,8 @@
 <h3>Current Reservations:</h3>
 <br>
 <%@reservations.each do |r|%>
-<%= r.start_date %>-<%=r.end_date%> BY <%=User.find(r.user_id).email%><br>
+
+<%= r.start_date %>-<%=r.end_date%> BY <%=r.user.email%> <%= link_to "Details", reservation_path(r.id)%> <br>
 <%end%>
 <br>
 <%= content_tag :div, nil, id: "available_dates", data: {dates: @listing.available_dates} %>

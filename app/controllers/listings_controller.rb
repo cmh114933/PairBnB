@@ -35,7 +35,6 @@ class ListingsController < ApplicationController
   def show
     @reservations=Reservation.where(listing_id:@listing.id)
     @reservation=Reservation.new
-
   end
 
   def edit
